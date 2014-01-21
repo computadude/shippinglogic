@@ -76,7 +76,7 @@ module Shippinglogic
 					return [] unless response[:address_results] && response[:address_results][:proposed_address_details]
 					service = Service.new
 					response[:address_results][:proposed_address_details].each do |key, value|
-						service.send("#{key}=",value) if serivce.respond_to?(:"#{key}=")
+						service.send("#{key}=",value) if service.respond_to?(:"#{key}=")
 					end
 					service
 				end
